@@ -1,7 +1,6 @@
-jQuery(function($) {'use strict',
-
+jQuery(function($) {
 	var form = $('.contact-form');
-	form.submit(function () {'use strict',
+	form.submit(function () {
 		$this = $(this);
 		$.post("sendemail.php", $(".contact-form").serialize(),function(result){
 			if(result.type == 'success'){
@@ -10,14 +9,11 @@ jQuery(function($) {'use strict',
 		});
 		return false;
 	});
-
 });
 
 // Google Map Customization
 (function(){
-
 	var map;
-
 	map = new GMaps({
 		el: '#gmap',
 		lat: 43.1580159,

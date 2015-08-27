@@ -22,40 +22,26 @@ class Controller {
         header('Location: ../view/index.php');
     }
 
-    public function Listar_mv(){
-        $lista = $this->model->Listar_mv();
-        echo json_encode($lista);
+    public function sp_listar_productos(){
+        return $this->model->sp_listar_productos();
     }
 
-    public function Lista_cat($cat){
-        return $productos = $this->model->Lista_cat($cat);
+    public function sp_listar_por_categoria($id){
+        return $this->model->sp_listar_por_categoria($id);
     }
 
-    public function sp_listar_productos($scat){
-        return $this->model->sp_listar_productos($scat);
+    public function sp_get_producto($id){
+        return $this->model->sp_get_producto($id);
     }
 
-    public function Busca_prod($id){
-        return $producto = $this->model->Busca_prod($id);
+    public function sp_categoria(){
+        return $this->model->sp_categoria();
     }
-
-    public function Lista_vid(){
-        return $lista_vid = $this->model->Lista_vid();
-    }
-
-    public function Lista_cli(){
-        return $lista_cli = $this->model->Lista_cli();
-    }
-
-    public function Lista_ban(){
-        return $lista_ban = $this->model->Lista_ban();
-    }
-
 
     public function Contacto(){
+
         $email = addslashes($_POST['cor']);
         $consulta = addslashes($_POST['msj']);
-
         $para      = "ventas@inprorsac.com";
         $titulo    = "Consulta desde Pagina Web";
         $mensaje   = "Datos de consulta\n\n"
@@ -64,11 +50,11 @@ class Controller {
         $cabeceras = "From: $email" . "\n" .
             "Reply-To: $email" . "\n" .
             "X-Mailer: PHP/" . phpversion();
-
         if(mail($para, $titulo, $mensaje, $cabeceras)){
             echo json_encode('ok');
         }else{
             echo json_encode('fail');
         }
     }
+
 }
