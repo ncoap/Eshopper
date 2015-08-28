@@ -1,0 +1,56 @@
+<!--<div class="card">
+    <div class="card-header bgm-blue">
+        <h2>Parámetros de Búsqueda</h2>
+        <button class="btn bgm-blue btn-float waves-effect"><i class="md md-send"></i></button>
+    </div>
+
+    <div class="card-body card-padding">
+        <form name="nameFormSearch" ng-submit="consultar()" class="form-horizontal" collapse="isCollapsed">
+            <div class="row">
+                <label class="control-label col-md-1">Categoria:</label>
+                <div  class="col-md-3" style="margin-bottom: 1em">
+                    <select class="form-control" ng-model="termSearch.tienda"
+                            ng-options="ti.nombreTienda for ti in tiendas track by ti.idTienda">
+                        <option value="">TODAS LAS CATEGORIAS</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>-->
+
+<div class="card">
+    <div class="card-header bgm-blue">
+        <h2>Productos CCTV</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Marca</th>
+                    <th>Nombre</th>
+                    <th class="innova-right">Cantidad</th>
+                    <th class="innova-right">Precio</th>
+                    <th class="innova-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="p in productos">
+                    <td>{{p.categoria}}</td>
+                    <td>{{p.marca}}</td>
+                    <td>{{p.nombre}}</td>
+                    <td class="innova-right">{{p.cantidad}}</td>
+                    <td class="innova-right">{{p.precio | currency:''}}</td>
+                    <td class="innova-center">
+                        <button class="btn btn-info btn-xs">Ver</button>
+                        <button class="btn btn-success btn-xs">Actualizar</button>
+                        <button class="btn btn-danger btn-xs">Eliminar</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

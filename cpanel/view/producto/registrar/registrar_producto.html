@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-header bgm-blue">
+        <h2>Nuevo Producto</h2>
+    </div>
+    <div class="card-body card-padding">
+        <form name="nameForm1" enctype="multipart/form-data" ng-submit="registrar()">
+            <!--fg-toggled-->
+            <div class="form-group fg-line">
+                <label>Nombre</label>
+                <input type="text" class="form-control" ng-model="producto.nombre"
+                       placeholder="Ingrese Nombre">
+            </div>
+            <div class="form-group fg-line">
+                <label>Descripción</label>
+                 <textarea class="form-control text-res" rows="5"
+                           maxlength="500" ng-trim='false'
+                           ng-model="producto.descripcion"
+                           style="resize: none">
+                </textarea>
+                <span class="label label-info">
+                    {{500 - producto.descripcion.length}}
+                    Caracteres Restantes
+                </span>
+            </div>
+            <div class="form-group fg-line">
+                <label>Stock</label>
+                <input type="number"
+                       class="form-control"
+                       ng-model="producto.cantidad" required min="0">
+            </div>
+            <div class="form-group fg-line">
+                <label>Precio</label>
+                <input type="number" step="0.01"
+                       ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                       class="form-control" ng-model="producto.precio" required min="0">
+            </div>
+            <div class="form-group fg-line">
+                <div class="form-group">
+                    <label>Marca</label>
+                    <select class="form-control" ng-model="producto.marca" required
+                            ng-options="m.nombre for m in marcas track by m.id">
+                        <option value="">-Seleccione-</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group fg-line">
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select class="form-control" ng-model="producto.categoria" required
+                            ng-options="c.nombre for c in categorias track by c.id">
+                        <option value="">-Seleccione-</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label>Adjuntar Imagen</label>
+                </div>
+                <img ng-src="{{image}}" width="300px" height="300px" class="img-rounded">
+            </div>
+            <div class="form-group">
+                <input my-upload type="file" file-model="myFile">
+            </div>
+            <button type="submit" class="btn btn-primary m-t-10"
+                    ng-disabled="!nameForm1.$valid">Registrar
+            </button>
+        </form>
+    </div>
+</div>

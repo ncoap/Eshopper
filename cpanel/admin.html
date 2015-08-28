@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="ngOdisea" ng-controller="OdiseaController">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>Security Innova Admin</title>
+    <link href="resources/material/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="resources/material/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="resources/material/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
+    <link href="resources/material/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="resources/material/vendors/socicon/socicon.min.css" rel="stylesheet">
+    <link href="resources/material/css/app.min.1.css" rel="stylesheet">
+    <link href="resources/material/css/app.min.2.css" rel="stylesheet">
+    <link href="resources/material/css/security.css" rel="stylesheet">
+</head>
+<body>
+<header id="header">
+    <ul class="header-inner">
+        <li id="menu-trigger" data-trigger="#sidebar">
+            <div class="line-wrap">
+                <div class="line top"></div>
+                <div class="line center"></div>
+                <div class="line bottom"></div>
+            </div>
+        </li>
+        <li class="logo hidden-xs">
+            <a href="index.html">SECURITY INNOVA ADMIN</a>
+        </li>
+        <li class="pull-right">
+            <ul class="top-menu">
+                <li id="toggle-width">
+                    <div class="toggle-switch">
+                        <input id="tw-switch" type="checkbox" hidden="hidden">
+                        <label for="tw-switch" class="ts-helper"></label>
+                    </div>
+                </li>
+                <li id="top-search">
+                    <a class="tm-search" href="#"></a>
+                </li>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="tm-message" href="#"><i class="tmn-counts">6</i></a>
+                    <div class="dropdown-menu dropdown-menu-lg pull-right">
+                        <div class="listview">
+                            <div class="lv-header">
+                                Mensajes
+                            </div>
+                            <div class="lv-body c-overflow">
+                                <a class="lv-item" href="#">
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="lv-img-sm" src="resources/material/img/profile-pics/1.jpg" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="lv-title">Odisea</div>
+                                            <small class="lv-small">Presupuesto de Cámaras</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="lv-item" href="#">
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="lv-img-sm" src="resources/material/img/profile-pics/1.jpg" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="lv-title">Mercado JyM</div>
+                                            <small class="lv-small">Camaras Domo</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <a class="lv-footer" href="#">Ver Todos</a>
+                        </div>
+                    </div>
+            </ul>
+        </li>
+    </ul>
+    <!-- Top Search Content -->
+    <div id="top-search-wrap">
+        <input type="text">
+        <i id="top-search-close">&times;</i>
+    </div>
+</header>
+
+<section id="main">
+    <aside id="sidebar">
+        <div class="sidebar-inner c-overflow">
+            <div class="profile-menu">
+                <a href="#">
+                    <div class="profile-pic">
+                        <img src="resources/material/img/profile-pics/1.jpg" alt="">
+                    </div>
+                    <div class="profile-info">
+                        ADMINISTRADOR
+                        <i class="md md-arrow-drop-down"></i>
+                    </div>
+                </a>
+
+                <ul class="main-menu">
+                    <li>
+                        <a ng-click="logout()" class="innova-hand"><i class="md md-history"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="main-menu">
+                <li class="active"><a href="index.html"><i class="md md-home"></i> Home</a></li>
+                <li class="sub-menu">
+                    <a href="#"><i class="md md-now-widgets"></i> Producto</a>
+                    <ul>
+                        <li>
+                            <a href="#producto">Nuevo</a>
+                        </li>
+                        <li>
+                            <a href="#productos">Listado</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="#"><i class="md md-now-widgets"></i> Promociones</a>
+                    <ul>
+                        <li>
+                            <a href="">Nueva</a>
+                        </li>
+                        <li>
+                            <a href="">Listado</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </aside>
+
+    <section id="content">
+        <div class="container" ui-view="main">
+
+        </div>
+    </section>
+</section>
+
+<footer id="footer">
+    Copyright &copy; 2015 <strong>Security Innova</strong>
+</footer>
+
+<!-- Javascript Libraries -->
+<script src="resources/material/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="resources/material/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="resources/material/vendors/bower_components/flot/jquery.flot.js"></script>
+<script src="resources/material/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+
+<script src="resources/material/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+<script src="resources/material/vendors/sparklines/jquery.sparkline.min.js"></script>
+<script src="resources/material/vendors/bower_components/moment/min/moment.min.js"></script>
+<script src="resources/material/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+<script src="resources/material/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+<script src="resources/material/vendors/bower_components/Waves/dist/waves.min.js"></script>
+<script src="resources/material/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+<script src="resources/material/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script src="resources/material/vendors/bower_components/autosize/dist/autosize.min.js"></script>
+
+<script src="resources/material/js/functions.js"></script>
+<script src="resources/material/js/demo.js"></script>
+
+
+
+<script src="resources/assets/angular/angular-1.3.min.js"></script>
+<script src="resources/assets/angular/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="resources/assets/angular/angular-ui-router.min.js"></script>
+<script src="resources/assets/angular/angular-resource.min.js"></script>
+<script src="resources/assets/angular/angular-animate.min.js"></script>
+<script src="resources/assets/angular/cooki/angular-cookies.min.js"></script>
+
+<script src="resources/assets/angular/texteditor/textAngular-sanitize.min.js"></script>
+<script src="resources/assets/angular/texteditor/textAngular.min.js"></script>
+
+
+<!--modales personlizadas de angular-->
+<script src="resources/assets/dialog/dialogs.js"></script>
+
+<!--CHART-->
+<script src="resources/assets/chart/Chart.min.js"></script>
+<script src="resources/assets/chart/angular-chart.min.js"></script>
+
+<!--EDITABLE-->
+<script src="resources/assets/xeditable/js/xeditable.min.js"></script>
+<script src="admin.js"></script>
+<script src="resources/assets/angular/checklist-model.js"></script>
+<script src="view/home/home.js"></script>
+<script src="view/producto/listar/listar_producto.js"></script>
+<script src="view/producto/registrar/registrar_producto.js"></script>
+<script src="view/producto/actualizar/actualizar_producto.js"></script>
+
+</body>
+</html>
